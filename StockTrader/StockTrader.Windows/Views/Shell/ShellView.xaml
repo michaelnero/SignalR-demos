@@ -1,0 +1,14 @@
+﻿<Page x:Class="StockTrader.Windows.Views.Shell.ShellView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Grid Background="#333333">
+        <ContentControl Name="MainRegion" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+            <ContentControl.ContentTransitions>
+                <TransitionCollection>
+                    <ContentThemeTransition HorizontalOffset="200" />
+                </TransitionCollection>
+            </ContentControl.ContentTransitions>
+        </ContentControl>
+    </Grid>
+</Page>

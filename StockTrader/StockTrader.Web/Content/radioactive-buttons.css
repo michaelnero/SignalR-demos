@@ -1,0 +1,466 @@
+﻿.button {
+    -moz-animation-duration: 2s;
+    -o-animation-duration: 2s;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+    -moz-animation-iteration-count: infinite;
+    -o-animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+}
+
+.green.animated.button {
+    -moz-animation-name: greenPulse;
+    -o-animation-name: greenPulse;
+    -webkit-animation-name: greenPulse;
+    animation-name: greenPulse;
+}
+
+.blue.animated.button {
+    -moz-animation-name: bluePulse;
+    -o-animation-name: bluePulse;
+    -webkit-animation-name: bluePulse;
+    animation-name: bluePulse;
+}
+
+.red.animated.button {
+    -moz-animation-name: redPulse;
+    -o-animation-name: redPulse;
+    -webkit-animation-name: redPulse;
+    animation-name: redPulse;
+}
+
+.magenta.animated.button {
+    -moz-animation-name: magentaPulse;
+    -o-animation-name: magentaPulse;
+    -webkit-animation-name: magentaPulse;
+    animation-name: magentaPulse;
+}
+
+.orange.animated.button {
+    -moz-animation-name: orangePulse;
+    -o-animation-name: orangePulse;
+    -webkit-animation-name: orangePulse;
+    animation-name: orangePulse;
+}
+
+.orangellow.animated.button {
+    -moz-animation-name: orangellowPulse;
+    -o-animation-name: orangellowPulse;
+    -webkit-animation-name: orangellowPulse;
+    animation-name: orangellowPulse;
+}
+
+@keyframes greenPulse {
+    from {
+        background-color: #749a02;
+        -moz-box-shadow: 0 0 9px #333;
+        -webkit-box-shadow: 0 0 9px #333;
+        box-shadow: 0 0 9px #333;
+    }
+
+    50% {
+        background-color: #91bd09;
+        -moz-box-shadow: 0 0 18px #91bd09;
+        -webkit-box-shadow: 0 0 18px #91bd09;
+        box-shadow: 0 0 18px #91bd09;
+    }
+
+    to {
+        background-color: #749a02;
+        -moz-box-shadow: 0 0 9px #333;
+        -webkit-box-shadow: 0 0 9px #333;
+        box-shadow: 0 0 9px #333;
+    }
+}
+
+@-moz-keyframes greenPulse {
+    from {
+        background-color: #749a02;
+        -moz-box-shadow: 0 0 9px #333;
+        -webkit-box-shadow: 0 0 9px #333;
+        box-shadow: 0 0 9px #333;
+    }
+
+    50% {
+        background-color: #91bd09;
+        -moz-box-shadow: 0 0 18px #91bd09;
+        -webkit-box-shadow: 0 0 18px #91bd09;
+        box-shadow: 0 0 18px #91bd09;
+    }
+
+    to {
+        background-color: #749a02;
+        -moz-box-shadow: 0 0 9px #333;
+        -webkit-box-shadow: 0 0 9px #333;
+        box-shadow: 0 0 9px #333;
+    }
+}
+
+@-webkit-keyframes greenPulse {
+    from {
+        background-color: #749a02;
+        -moz-box-shadow: 0 0 9px #333;
+        -webkit-box-shadow: 0 0 9px #333;
+        box-shadow: 0 0 9px #333;
+    }
+
+    50% {
+        background-color: #91bd09;
+        -moz-box-shadow: 0 0 18px #91bd09;
+        -webkit-box-shadow: 0 0 18px #91bd09;
+        box-shadow: 0 0 18px #91bd09;
+    }
+
+    to {
+        background-color: #749a02;
+        -moz-box-shadow: 0 0 9px #333;
+        -webkit-box-shadow: 0 0 9px #333;
+        box-shadow: 0 0 9px #333;
+    }
+}
+
+@keyframes bluePulse {
+    from {
+        background-color: #007d9a;
+        -moz-box-shadow: 0 0 9px #333;
+        -webkit-box-shadow: 0 0 9px #333;
+        box-shadow: 0 0 9px #333;
+    }
+
+    50% {
+        background-color: #2daebf;
+        -moz-box-shadow: 0 0 18px #2daebf;
+        -webkit-box-shadow: 0 0 18px #2daebf;
+        box-shadow: 0 0 18px #2daebf;
+    }
+
+    to {
+        background-color: #007d9a;
+        -moz-box-shadow: 0 0 9px #333;
+        -webkit-box-shadow: 0 0 9px #333;
+        box-shadow: 0 0 9px #333;
+    }
+}
+
+@-moz-keyframes bluePulse {
+    from {
+        background-color: #007d9a;
+        -moz-box-shadow: 0 0 9px #333;
+        -webkit-box-shadow: 0 0 9px #333;
+        box-shadow: 0 0 9px #333;
+    }
+
+    50% {
+        background-color: #2daebf;
+        -moz-box-shadow: 0 0 18px #2daebf;
+        -webkit-box-shadow: 0 0 18px #2daebf;
+        box-shadow: 0 0 18px #2daebf;
+    }
+
+    to {
+        background-color: #007d9a;
+        -moz-box-shadow: 0 0 9px #333;
+        -webkit-box-shadow: 0 0 9px #333;
+        box-shadow: 0 0 9px #333;
+    }
+}
+
+@-webkit-keyframes bluePulse {
+    from {
+        background-color: #007d9a;
+        -moz-box-shadow: 0 0 9px #333;
+        -webkit-box-shadow: 0 0 9px #333;
+        box-shadow: 0 0 9px #333;
+    }
+
+    50% {
+        background-color: #2daebf;
+        -moz-box-shadow: 0 0 18px #2daebf;
+        -webkit-box-shadow: 0 0 18px #2daebf;
+        box-shadow: 0 0 18px #2daebf;
+    }
+
+    to {
+        background-color: #007d9a;
+        -moz-box-shadow: 0 0 9px #333;
+        -webkit-box-shadow: 0 0 9px #333;
+        box-shadow: 0 0 9px #333;
+    }
+}
+
+@keyframes redPulse {
+    from {
+        background-color: #bc330d;
+        -moz-box-shadow: 0 0 9px #333;
+        -webkit-box-shadow: 0 0 9px #333;
+        box-shadow: 0 0 9px #333;
+    }
+
+    50% {
+        background-color: #e33100;
+        -moz-box-shadow: 0 0 18px #e33100;
+        -webkit-box-shadow: 0 0 18px #e33100;
+        box-shadow: 0 0 18px #e33100;
+    }
+
+    to {
+        background-color: #bc330d;
+        -moz-box-shadow: 0 0 9px #333;
+        -webkit-box-shadow: 0 0 9px #333;
+        box-shadow: 0 0 9px #333;
+    }
+}
+
+@-moz-keyframes redPulse {
+    from {
+        background-color: #bc330d;
+        -moz-box-shadow: 0 0 9px #333;
+        -webkit-box-shadow: 0 0 9px #333;
+        box-shadow: 0 0 9px #333;
+    }
+
+    50% {
+        background-color: #e33100;
+        -moz-box-shadow: 0 0 18px #e33100;
+        -webkit-box-shadow: 0 0 18px #e33100;
+        box-shadow: 0 0 18px #e33100;
+    }
+
+    to {
+        background-color: #bc330d;
+        -moz-box-shadow: 0 0 9px #333;
+        -webkit-box-shadow: 0 0 9px #333;
+        box-shadow: 0 0 9px #333;
+    }
+}
+
+@-webkit-keyframes redPulse {
+    from {
+        background-color: #bc330d;
+        -moz-box-shadow: 0 0 9px #333;
+        -webkit-box-shadow: 0 0 9px #333;
+        box-shadow: 0 0 9px #333;
+    }
+
+    50% {
+        background-color: #e33100;
+        -moz-box-shadow: 0 0 18px #e33100;
+        -webkit-box-shadow: 0 0 18px #e33100;
+        box-shadow: 0 0 18px #e33100;
+    }
+
+    to {
+        background-color: #bc330d;
+        -moz-box-shadow: 0 0 9px #333;
+        -webkit-box-shadow: 0 0 9px #333;
+        box-shadow: 0 0 9px #333;
+    }
+}
+
+@keyframes magentaPulse {
+    from {
+        background-color: #630030;
+        -moz-box-shadow: 0 0 9px #333;
+        -webkit-box-shadow: 0 0 9px #333;
+        box-shadow: 0 0 9px #333;
+    }
+
+    50% {
+        background-color: #a9014b;
+        -moz-box-shadow: 0 0 18px #a9014b;
+        -webkit-box-shadow: 0 0 18px #a9014b;
+        box-shadow: 0 0 18px #a9014b;
+    }
+
+    to {
+        background-color: #630030;
+        -moz-box-shadow: 0 0 9px #333;
+        -webkit-box-shadow: 0 0 9px #333;
+        box-shadow: 0 0 9px #333;
+    }
+}
+
+@-moz-keyframes magentaPulse {
+    from {
+        background-color: #630030;
+        -moz-box-shadow: 0 0 9px #333;
+        -webkit-box-shadow: 0 0 9px #333;
+        box-shadow: 0 0 9px #333;
+    }
+
+    50% {
+        background-color: #a9014b;
+        -moz-box-shadow: 0 0 18px #a9014b;
+        -webkit-box-shadow: 0 0 18px #a9014b;
+        box-shadow: 0 0 18px #a9014b;
+    }
+
+    to {
+        background-color: #630030;
+        -moz-box-shadow: 0 0 9px #333;
+        -webkit-box-shadow: 0 0 9px #333;
+        box-shadow: 0 0 9px #333;
+    }
+}
+
+@-webkit-keyframes magentaPulse {
+    from {
+        background-color: #630030;
+        -moz-box-shadow: 0 0 9px #333;
+        -webkit-box-shadow: 0 0 9px #333;
+        box-shadow: 0 0 9px #333;
+    }
+
+    50% {
+        background-color: #a9014b;
+        -moz-box-shadow: 0 0 18px #a9014b;
+        -webkit-box-shadow: 0 0 18px #a9014b;
+        box-shadow: 0 0 18px #a9014b;
+    }
+
+    to {
+        background-color: #630030;
+        -moz-box-shadow: 0 0 9px #333;
+        -webkit-box-shadow: 0 0 9px #333;
+        box-shadow: 0 0 9px #333;
+    }
+}
+
+@keyframes orangePulse {
+    from {
+        background-color: #d45500;
+        -moz-box-shadow: 0 0 9px #333;
+        -webkit-box-shadow: 0 0 9px #333;
+        box-shadow: 0 0 9px #333;
+    }
+
+    50% {
+        background-color: #ff5c00;
+        -moz-box-shadow: 0 0 18px #ff5c00;
+        -webkit-box-shadow: 0 0 18px #ff5c00;
+        box-shadow: 0 0 18px #ff5c00;
+    }
+
+    to {
+        background-color: #d45500;
+        -moz-box-shadow: 0 0 9px #333;
+        -webkit-box-shadow: 0 0 9px #333;
+        box-shadow: 0 0 9px #333;
+    }
+}
+
+@-moz-keyframes orangePulse {
+    from {
+        background-color: #d45500;
+        -moz-box-shadow: 0 0 9px #333;
+        -webkit-box-shadow: 0 0 9px #333;
+        box-shadow: 0 0 9px #333;
+    }
+
+    50% {
+        background-color: #ff5c00;
+        -moz-box-shadow: 0 0 18px #ff5c00;
+        -webkit-box-shadow: 0 0 18px #ff5c00;
+        box-shadow: 0 0 18px #ff5c00;
+    }
+
+    to {
+        background-color: #d45500;
+        -moz-box-shadow: 0 0 9px #333;
+        -webkit-box-shadow: 0 0 9px #333;
+        box-shadow: 0 0 9px #333;
+    }
+}
+
+@-webkit-keyframes orangePulse {
+    from {
+        background-color: #d45500;
+        -moz-box-shadow: 0 0 9px #333;
+        -webkit-box-shadow: 0 0 9px #333;
+        box-shadow: 0 0 9px #333;
+    }
+
+    50% {
+        background-color: #ff5c00;
+        -moz-box-shadow: 0 0 18px #ff5c00;
+        -webkit-box-shadow: 0 0 18px #ff5c00;
+        box-shadow: 0 0 18px #ff5c00;
+    }
+
+    to {
+        background-color: #d45500;
+        -moz-box-shadow: 0 0 9px #333;
+        -webkit-box-shadow: 0 0 9px #333;
+        box-shadow: 0 0 9px #333;
+    }
+}
+
+@keyframes orangellowPulse {
+    from {
+        background-color: #fc9200;
+        -moz-box-shadow: 0 0 9px #333;
+        -webkit-box-shadow: 0 0 9px #333;
+        box-shadow: 0 0 9px #333;
+    }
+
+    50% {
+        background-color: #ffb515;
+        -moz-box-shadow: 0 0 18px #ffb515;
+        -webkit-box-shadow: 0 0 18px #ffb515;
+        box-shadow: 0 0 18px #ffb515;
+    }
+
+    to {
+        background-color: #fc9200;
+        -moz-box-shadow: 0 0 9px #333;
+        -webkit-box-shadow: 0 0 9px #333;
+        box-shadow: 0 0 9px #333;
+    }
+}
+
+@-moz-keyframes orangellowPulse {
+    from {
+        background-color: #fc9200;
+        -moz-box-shadow: 0 0 9px #333;
+        -webkit-box-shadow: 0 0 9px #333;
+        box-shadow: 0 0 9px #333;
+    }
+
+    50% {
+        background-color: #ffb515;
+        -moz-box-shadow: 0 0 18px #ffb515;
+        -webkit-box-shadow: 0 0 18px #ffb515;
+        box-shadow: 0 0 18px #ffb515;
+    }
+
+    to {
+        background-color: #fc9200;
+        -moz-box-shadow: 0 0 9px #333;
+        -webkit-box-shadow: 0 0 9px #333;
+        box-shadow: 0 0 9px #333;
+    }
+}
+
+@-webkit-keyframes orangellowPulse {
+    from {
+        background-color: #fc9200;
+        -moz-box-shadow: 0 0 9px #333;
+        -webkit-box-shadow: 0 0 9px #333;
+        box-shadow: 0 0 9px #333;
+    }
+
+    50% {
+        background-color: #ffb515;
+        -moz-box-shadow: 0 0 18px #ffb515;
+        -webkit-box-shadow: 0 0 18px #ffb515;
+        box-shadow: 0 0 18px #ffb515;
+    }
+
+    to {
+        background-color: #fc9200;
+        -moz-box-shadow: 0 0 9px #333;
+        -webkit-box-shadow: 0 0 9px #333;
+        box-shadow: 0 0 9px #333;
+    }
+}

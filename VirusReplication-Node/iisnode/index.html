@@ -1,0 +1,87 @@
+<html>
+<head>
+    <title>iisnode logs</title>
+    <style type="text/css">
+        body
+        {
+            font-family: "Trebuchet MS" , Arial, Helvetica, sans-serif;
+        }
+        table
+        {
+            border-collapse: collapse;
+        }
+        td, th
+        {
+            border: 1px solid lightgray;
+            padding: 3px 7px 2px 7px;
+        }
+        th
+        {
+            text-align: left;
+            padding-top: 5px;
+            padding-bottom: 4px;
+            background-color: Gray;
+            color: #ffffff;
+        }
+        td.stderr
+        {
+            color: Red;
+        }
+    </style>
+</head>
+<body>
+    <table id="logFilesTable">
+        <tr>
+            <th>
+                Computer name
+            </th>
+            <th>
+                PID
+            </th>
+            <th>
+                Type
+            </th>
+            <th>
+                Created
+            </th>
+            <th>
+                Link
+            </th>
+        </tr>
+    </table>
+    <p id="lastUpdated"></p>
+    <script type="text/javascript">
+
+        // this is replaced with actual data at runtime by code in interceptor.js
+        var logFiles = [{"file":"RIVENDELL-10920-stdout-1355761409284.txt","computername":"RIVENDELL","pid":10920,"type":"stdout","created":1355761409284},{"file":"RIVENDELL-4672-stdout-1355761319151.txt","computername":"RIVENDELL","pid":4672,"type":"stdout","created":1355761319151},{"file":"RIVENDELL-508-stdout-1355511105922.txt","computername":"RIVENDELL","pid":508,"type":"stdout","created":1355511105922},{"file":"RIVENDELL-5104-stdout-1355506923912.txt","computername":"RIVENDELL","pid":5104,"type":"stdout","created":1355506923912},{"file":"RIVENDELL-5780-stdout-1355507938490.txt","computername":"RIVENDELL","pid":5780,"type":"stdout","created":1355507938490},{"file":"RIVENDELL-6288-stdout-1355511222962.txt","computername":"RIVENDELL","pid":6288,"type":"stdout","created":1355511222962},{"file":"RIVENDELL-6604-stdout-1355761841314.txt","computername":"RIVENDELL","pid":6604,"type":"stdout","created":1355761841314},{"file":"RIVENDELL-8896-stdout-1355761685890.txt","computername":"RIVENDELL","pid":8896,"type":"stdout","created":1355761685890},{"file":"RIVENDELL-8948-stdout-1356119046947.txt","computername":"RIVENDELL","pid":8948,"type":"stdout","created":1356119046947},{"file":"RIVENDELL-9984-stdout-1355761967667.txt","computername":"RIVENDELL","pid":9984,"type":"stdout","created":1355761967667}];
+        var lastUpdated = 1356119047688;
+        var date = new Date();
+
+        date.setTime(lastUpdated);
+        document.getElementById('lastUpdated').innerHTML = 'Index was last updated ' + date;
+
+        logFiles.sort(function (a, b) {
+            return b.created - a.created;
+        });
+
+        var logFilesTable = document.getElementById("logFilesTable");
+        for (var i = 0; i < logFiles.length; i++) {
+            var logFile = logFiles[i];
+            date.setTime(logFile.created);
+            var row = logFilesTable.insertRow(-1);
+            var computerNameCell = row.insertCell(0);
+            var pidCell = row.insertCell(1);
+            var typeCell = row.insertCell(2);
+            var dateCell = row.insertCell(3);
+            var logCell = row.insertCell(4);
+            computerNameCell.innerHTML = logFile.computername;
+            pidCell.innerHTML = logFile.pid.toString();
+            typeCell.innerHTML = logFile.type;
+            typeCell.setAttribute('class', logFile.type);
+            dateCell.innerHTML = date.toString();
+            logCell.innerHTML = '<a href="' + logFile.file + '">log</a>';
+        };
+
+    </script>
+</body>
+</html>

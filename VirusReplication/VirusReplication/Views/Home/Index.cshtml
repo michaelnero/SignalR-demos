@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Realtime-ish Virus Replication Demo</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="@Url.Content("~/content/bootstrap.min.css")" rel="stylesheet" />
+        <link href="@Url.Content("~/content/font-awesome.css")" rel="stylesheet" />
+        <link href="@Url.Content("~/content/home.index.css")" rel="stylesheet" />
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <div class="container">
+            <header class="row">
+                <div class="span12">
+                    <h1>In case of data overload...</h1>
+                </div>
+            </header>
+            <section id="explanation" class="row">
+                <div class="span12">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur massa massa, placerat et vulputate id, sodales id eros. Aenean congue libero condimentum quam euismod ut dapibus elit consectetur. In mi diam, gravida a gravida et, fermentum vitae velit. Etiam vitae justo mi. Proin justo metus, vulputate id interdum pretium, scelerisque ac purus. Proin laoreet sodales dui eget luctus. Suspendisse nisi nibh, hendrerit ac sagittis sit amet, aliquam ac arcu. Donec sollicitudin augue sed urna varius scelerisque. Duis sed gravida tortor. Pellentesque mi lorem, convallis ac porttitor vel, tristique convallis tortor. Aliquam erat volutpat. Proin eros mi, tristique eu tempor pellentesque, aliquam ac leo. Vivamus nec erat a tortor tempus molestie eu id arcu. Vestibulum lorem orci, porta sed consequat sed, laoreet auctor tellus.</p>
+                </div>
+            </section>
+            <h2>Settings</h2>
+            <section class="row">
+                <div class="control-group span3">
+                    <label class="control-label" for="fps">Frames/second</label>
+                    <div class="controls">
+                        <input id="fps" type="text" placeholder="FPS" data-bind="value: fps">
+                    </div>
+                </div>
+                <div class="control-group span3">
+                    <label class="control-label" for="q">Number of states (q)</label>
+                    <div class="controls">
+                        <input id="q" type="text" placeholder="q" data-bind="value: q">
+                    </div>
+                </div>
+                <div class="control-group span3">
+                    <label class="control-label" for="n">Generations (n)</label>
+                    <div class="controls">
+                        <input id="n" type="text" placeholder="n" data-bind="value: n">
+                    </div>
+                </div>
+            </section>
+            <section id="start-stop" class="row">
+                <div class="span12">
+                    <button id="start" type="button" class="btn btn-success" data-bind="click: start">Start</button>
+                </div>
+            </section>
+            <canvas id="virus-canvas"></canvas>
+        </div>
+        <div id="connecting-modal" class="modal hide fade">
+            <div class="modal-header">
+                <h3>Connecting...</h3>
+            </div>
+            <div class="modal-body">
+                <p>Please wait while you are connected to the hub. While you wait, why not go enjoy a healthy snack?</p>
+            </div>
+        </div>
+        <script src="@Url.Content("~/scripts/jquery-1.8.3.min.js")"></script>
+        <script src="@Url.Content("~/scripts/jquery.signalR-1.0.0-alpha2.min.js")"></script>
+        <script src="@Url.Content("~/scripts/bootstrap.min.js")"></script>
+        <script src="@Url.Content("~/scripts/knockout-2.2.0.debug.js")"></script>
+        <script src="@Url.Content("~/scripts/easeljs-0.5.0.min.js")"></script>
+        <script src="@Url.Content("~/signalr/hubs")"></script>
+        <script src="@Url.Content("~/scripts/home.index.js")"></script>
+        <script>
+            App.init();
+        </script>
+    </body>
+</html>

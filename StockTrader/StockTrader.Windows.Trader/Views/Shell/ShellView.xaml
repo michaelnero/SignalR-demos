@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="StockTrader.Windows.Trader.Views.Shell.ShellView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:controls="using:WinRTXamlToolkit.Controls">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" MaxWidth="225" />
+            <ColumnDefinition Width="22" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <ContentControl Name="HistoryRegion" Grid.Column="0" VerticalAlignment="Stretch" VerticalContentAlignment="Top" />
+
+        <controls:CustomGridSplitter Grid.Column="1" VerticalAlignment="Stretch" />
+
+        <Grid Grid.Column="2" Margin="40">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Column="0" Grid.Row="0" Source="ms-appx:///Assets/brand.png" Width="308" Height="142" HorizontalAlignment="Left" />
+
+            <ContentControl Name="BalanceRegion" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" />
+
+            <ContentControl Name="StocksRegion" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,38,0,0" />
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>The Most Amazing Stock Trader</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="~/content/bootstrap.min.css" rel="stylesheet" />
+        <link href="~/content/font-awesome.css" rel="stylesheet" />
+        <link href="~/content/home.index.css" rel="stylesheet" />
+        <link href="~/content/radioactive-buttons.css" rel="stylesheet" />
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span3">
+                    <header>
+                        <img src="~/content/brand.png" />
+                    </header>
+                    <div id="add-stock-form" data-bind="with: trader">
+                        <label>Add a stock to watch</label>
+                        <input type="text" data-bind="event: { keyup: onSubscribe }" placeholder="MSFT, GOOG, AAPL, etc..." style="text-transform: uppercase;">
+                        <span class="help-block">Enter symbol &amp; quantity and press ENTER<br />
+                            (Ex: MSFT or MSFT,1000)<br />
+                            Left-click a tile to buy the specified quantity of stock.<br />
+                            Right-click a tile to sell the specified quantity of stock.<br />
+                            Ctrl-click a tile to end your subscription.
+                        </span>
+                    </div>
+                    <div id="balance-panel" data-bind="with: balance">
+                        <p>AccountID: <span data-bind="text: accountID"></span></p>
+                        <p>Balance: <a href="#" data-bind="click: onShowBalances"><span data-bind="text: formattedBalance"></span></a></p>
+                    </div>
+                    <div id="history-panel" data-bind="with: history">
+                        <p>History: <a href="#" data-bind="click: onShowHistory"><span data-bind="text: historyCount"></span> item(s)</a></p>
+                    </div>
+                </div>
+                <div class="span9" data-bind="with: trader">
+                    <div data-bind="template: { name: 'stock-panel-template', foreach: stocks }">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="history-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3>Stock action history</h3>
+            </div>
+            <div class="modal-body">
+                <table style="width: 100%;" data-bind="with: history">
+                    <thead>
+                        <tr>
+                            <th>Action</th>
+                            <th>Symbol</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="template: { name: 'history-items-template', foreach: history }"></tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn" data-dismiss="modal" aria-hidden="true">Close</a>
+            </div>
+        </div>
+        <div id="initialization-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true" data-bind="with: startUp">
+            <div class="modal-header">
+                <button class="close" type="button" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3 data-bind="visible: inAccountIDEntryState">Enter your account ID</h3>
+                <h3 data-bind="visible: inConnectingState">Connecting...</h3>
+            </div>
+            <div class="modal-body">
+                <div data-bind="visible: inAccountIDEntryState">
+                    <label>Account ID</label>
+                    <input type="text" placeholder="EX: 1248ADR813" autofocus="autofocus" style="text-transform: uppercase" data-bind="value: accountID" />
+                </div>
+                <div data-bind="visible: inConnectingState">
+                    Give us just a moment please...
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-primary" href="#" aria-hidden="true" data-bind="click: onContinue, enable: inAccountIDEntryState">Continue</a>
+            </div>
+        </div>
+        <div id="stock-quantities-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true" data-bind="with: balance">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3>Stock balances</h3>
+            </div>
+            <div class="modal-body">
+                <table style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>Symbol</th>
+                            <th>Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="template: { name: 'stock-quantities-template', foreach: stocks }"></tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn" data-dismiss="modal" aria-hidden="true">Close</a>
+            </div>
+        </div>
+        <script id="stock-panel-template" type="text/html">
+            <a data-bind="css: cssClass, click: $parent.onTileLeftClick, event: { contextmenu: function(data, event) { $parent.doStockAction(data, 'SELL'); } }">
+                <div class="pull-left" style="padding-top: 1px; height: 100%; width: 50%;">
+                    <div style="font-size: 17px;">
+                        <span data-bind="text: symbol"></span>
+                    </div>
+                    <div style="font-size: 12px;">
+                        x <span data-bind="text: quantity"></span>
+                    </div>
+                </div>
+                <div class="pull-left" style="height: 100%;">
+                    <div style="font-size: 17px;">
+                        <span data-bind="text: formattedPrice"></span> <i data-bind="css: movementCssClass" style="margin-top: 2px;"></i>
+                    </div>
+                    <div style="font-size: 12px;">
+                        <span data-bind="text: formattedPreviousPrice"></span>
+                    </div>
+                </div>
+            </a>
+        </script>
+        <script id="history-items-template" type="text/html">
+            <tr data-bind="css: formattedStatus">
+                <td>
+                    <span data-bind="text: formattedAction"></span>
+                </td>
+                <td>
+                    <span data-bind="text: symbol"></span>
+                </td>
+                <td>
+                    <span data-bind="text: formattedPrice"></span>
+                </td>
+                <td>
+                    <span data-bind="text: formattedStatus().toUpperCase()"></span>
+                </td>
+            </tr>
+        </script>
+        <script id="stock-quantities-template" type="text/html">
+            <tr>
+                <td>
+                    <span data-bind="text: symbol"></span>
+                </td>
+                <td>
+                    <span data-bind="text: quantity"></span>
+                </td>
+            </tr>
+        </script>
+        <script src="~/scripts/Math.uuid.js"></script>
+        <script src="~/scripts/jquery-1.8.3.min.js"></script>
+        <script src="~/scripts/jquery.signalR-1.0.0-alpha2.min.js"></script>
+        <script src="~/scripts/bootstrap.min.js"></script>
+        <script src="~/scripts/knockout-2.2.0.debug.js"></script>
+        <script src="~/signalr/hubs"></script>
+        <script src="~/scripts/home.index.js"></script>
+        <script>
+            App.init();
+        </script>
+    </body>
+</html>
