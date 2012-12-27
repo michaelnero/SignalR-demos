@@ -12,3 +12,12 @@ There are two projects in this repository
 - VirusReplication - a demo that shows how
  - to stream data to a web front-end
  - web front-ends are not able to handle the amount of data that SignalR is capable of sending, so I present a solution for throttling virus generation calculations and streaming those results to the client.
+  - to connect a node.js front-end to an ASP.NET SignalR hub.
+  
+Resources
+=============
+  
+Here are some third-party resources you'll see referenced in the projects
+
+- [node-uuid](https://github.com/broofa/node-uuid)
+- [Prism 4.1 on.Net for Metro Style App](http://metroprism.codeplex.com/) - modified slightly to use Microsoft Unity for WinRT
