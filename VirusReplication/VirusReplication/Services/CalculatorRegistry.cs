@@ -14,5 +14,12 @@ namespace VirusReplication.Services {
                 calculator.Stop();
             }
         }
+
+        public static void UpdateFPS(string connectionID, double fps) {
+            GenerationCalculator calculator;
+            if (calculators.TryGetValue(connectionID, out calculator)) {
+                calculator.UpdateFPS(fps);
+            }
+        }
     }
 }

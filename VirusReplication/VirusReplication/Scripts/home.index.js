@@ -29,8 +29,9 @@ var App = (function () {
         var rectangleField = null;
         
         this.fps = ko.observable(32);
-        this.q = ko.observable(20);
-        this.n = ko.observable(500);
+        this.q = ko.observable(10);
+        this.n = ko.observable(750);
+        this.k2 = ko.observable(300);
 
         this.start = function() {
             disable($('#start'));
@@ -39,7 +40,7 @@ var App = (function () {
             var gridSize = computeGridSize(dimensions);
 
             connectToHub(function() {
-                virusHub.server.start(self.fps(), self.q(), gridSize.x, gridSize.y, self.n());
+                virusHub.server.start(self.fps(), self.q(), gridSize.x, gridSize.y, self.n(), self.k2());
             });
         };
 

@@ -101,9 +101,9 @@ var App = (function () {
                     stocksHub.state.AccountID = self.accountID();
 
                     $.connection.hub.start().done(function () {
-                        stocksHub.server.requestAccountBalance();
-
-                        $('#initialization-modal').modal('hide');
+                        stocksHub.server.requestAccountBalance().done(function() {
+                            $('#initialization-modal').modal('hide');
+                        });
                     });
                 }
             };

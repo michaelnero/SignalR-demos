@@ -49,19 +49,21 @@ namespace StockTrader.Web.Models {
         }
 
         public bool TrySellStock(string symbol, int quantity, decimal price, out decimal newBalance) {
-            var stock = this.Stocks.Find(s => s.Symbol == symbol);
-            if (null != stock) {
-                int remainingQuantity = stock.Quantity - quantity;
-                if (0 <= remainingQuantity) {
-                    stock.Quantity = remainingQuantity;
+            lock (this) {
+                var stock = this.Stocks.Find(s => s.Symbol == symbol);
+                if (null != stock) {
+                    int remainingQuantity = stock.Quantity - quantity;
+                    if (0 <= remainingQuantity) {
+                        stock.Quantity = remainingQuantity;
 
-                    newBalance = (this.Balance += price * quantity);
-                    return true;
+                        newBalance = (this.Balance += price*quantity);
+                        return true;
+                    }
                 }
-            }
 
-            newBalance = 0m;
-            return false;
+                newBalance = 0m;
+                return false;
+            }
         }
     }
 }

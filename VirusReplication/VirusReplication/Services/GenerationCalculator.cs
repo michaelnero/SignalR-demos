@@ -18,6 +18,7 @@ namespace VirusReplication.Services {
         private int width;
         private int height;
         private int generations;
+        private double baseRate;
 
         public GenerationCalculator(string connectionID) {
             this.connectionID = connectionID;
@@ -27,23 +28,30 @@ namespace VirusReplication.Services {
             get { return this.connectionID; }
         }
 
-        public void Start(double fps, int q, int x, int y, int n) {
+        public void Start(double fps, int q, int x, int y, int n, int k2) {
             lock (this.sync) {
                 if (null == this.timer) {
-                    this.Initialize(fps, q, x, y, n);
+                    this.Initialize(fps, q, x, y, n, k2);
                 }
             }
 
-            this.timer.Start();
+            if (!this.timer.IsRunning()) {
+                this.timer.Start();
+            }
         }
 
         public void Stop() {
             lock (this.sync) {
                 if (null != this.timer) {
                     this.timer.Stop();
-                    this.timer = null;
+                }
+            }
+        }
 
-                    this.cells = null;
+        public void UpdateFPS(double fps) {
+            lock (this.sync) {
+                if (null != this.timer) {
+                    this.timer.FPS = fps;
                 }
             }
         }
@@ -102,7 +110,7 @@ namespace VirusReplication.Services {
         private void OnActualFpsUpdate(int fps) {
         }
 
-        private void Initialize(double fps, int q, int x, int y, int n) {
+        private void Initialize(double fps, int q, int x, int y, int n, int k2) {
             // Setup the timer
             this.timer = new HighFrequencyTimer(fps, this.OnCallback, this.OnStarted, this.OnStopped, this.OnActualFpsUpdate);
 
@@ -114,21 +122,20 @@ namespace VirusReplication.Services {
                 }
             }
 
-            // Infect a random cell in the system
-            int randomX = RandomNumber.GetRandomInt(x);
-            int randomY = RandomNumber.GetRandomInt(y);
-
-            var cell = this.cells[randomX, randomY];
-            this.InfectCell(cell);
+            // Infect a random cell in the system, this starts us off
+            var cell = this.cells[RandomNumber.GetRandomInt(x), RandomNumber.GetRandomInt(y)];
+            cell.state--;
 
             this.initialState = q;
             this.width = x;
             this.height = y;
             this.generations = n;
+            this.baseRate = k2 / 100000d;
         }
 
         private bool InfectCell(Cell cell) {
-            if (cell.state > 0) {
+            double random = RandomNumber.GetRandomDouble();
+            if ((random < this.baseRate) && (0 < cell.state)) {
                 cell.state--;
                 return true;
             }

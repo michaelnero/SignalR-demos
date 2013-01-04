@@ -5,7 +5,7 @@ block style
 
 block content
     .container
-        header.row: .span12: h1 In case of data overload...
+        header.row: .span12: h1 Virus replication visualization
         section#explanation.row: .span12: p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur massa massa, placerat et vulputate id, sodales id eros. Aenean congue libero condimentum quam euismod ut dapibus elit consectetur. In mi diam, gravida a gravida et, fermentum vitae velit. Etiam vitae justo mi. Proin justo metus, vulputate id interdum pretium, scelerisque ac purus. Proin laoreet sodales dui eget luctus. Suspendisse nisi nibh, hendrerit ac sagittis sit amet, aliquam ac arcu. Donec sollicitudin augue sed urna varius scelerisque. Duis sed gravida tortor. Pellentesque mi lorem, convallis ac porttitor vel, tristique convallis tortor. Aliquam erat volutpat. Proin eros mi, tristique eu tempor pellentesque, aliquam ac leo. Vivamus nec erat a tortor tempus molestie eu id arcu. Vestibulum lorem orci, porta sed consequat sed, laoreet auctor tellus.
         h2 Settings
         section.row
@@ -18,6 +18,9 @@ block content
             .control-group.span3
                 label.control-label(for="n") Generations (n)
                 .controls: input#n(type="text", placeholder="n", data-bind="value: n")
+            .control-group.span3
+                label.control-label(for="k2") Base rate (k2)
+                .controls: input#k2(type="text", placeholder="k2", data-bind="value: k2")
         section#start-stop.row: .span12: button#start.btn.btn-success(type="button", data-bind="click: start") Start
         canvas#virus-canvas
     #connecting-modal.modal.hide.fade
